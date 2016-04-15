@@ -8,19 +8,19 @@
 
 
 # Load the config
-source ~/MCMANAGER/config.cfg
+source ~/mcmanager/config.cfg
 
 function infomsg() {
-  ~/MCMANAGER/cecho "&6[INFO]&r $1"
+  ~/mcmanager/cecho "&6[INFO]&r $1"
 }
 function warningmsg() {
-  ~/MCMANAGER/cecho "&3[WARN]&r $1"
+  ~/mcmanager/cecho "&3[WARN]&r $1"
 }
 function errormsg() {
-  ~/MCMANAGER/cecho "&1[SEVERE]&r $1"
+  ~/mcmanager/cecho "&1[SEVERE]&r $1"
 }
 function okmsg() {
-  ~/MCMANAGER/cecho "&2[FINE]&r $1"
+  ~/mcmanager/cecho "&2[FINE]&r $1"
 }
 
 ME=`whoami`
@@ -270,15 +270,15 @@ case "$1" in
     fi
   ;;
   *)
-    ~/MCMANAGER/cecho "&3Usage: $0"
-    ~/MCMANAGER/cecho "  &6start                &r- &6Starts the server"
-    ~/MCMANAGER/cecho "  &6stop                 &r- &6Stops the server"
-    ~/MCMANAGER/cecho "  &6update <glowstone>   &r- &6Updates the server to a branch"
-    ~/MCMANAGER/cecho "  &6backup               &r- &6Makes a backup of the world"
-    ~/MCMANAGER/cecho "  &6status               &r- &6Shows server information"
-    ~/MCMANAGER/cecho "  &6restart              &r- &6Restarts the server"
-    ~/MCMANAGER/cecho "  &6say (message)        &r- &6Broadcasts a message to the server"
-    ~/MCMANAGER/cecho "  &6cmd (command)        &r- &6Excecutes a command"
+    ~/mcmanager/cecho "&3Usage: $0"
+    ~/mcmanager/cecho "  &6start                &r- &6Starts the server"
+    ~/mcmanager/cecho "  &6stop                 &r- &6Stops the server"
+    ~/mcmanager/cecho "  &6update <glowstone>   &r- &6Updates the server to a branch"
+    ~/mcmanager/cecho "  &6backup               &r- &6Makes a backup of the world"
+    ~/mcmanager/cecho "  &6status               &r- &6Shows server information"
+    ~/mcmanager/cecho "  &6restart              &r- &6Restarts the server"
+    ~/mcmanager/cecho "  &6say (message)        &r- &6Broadcasts a message to the server"
+    ~/mcmanager/cecho "  &6cmd (command)        &r- &6Excecutes a command"
     exit 1
   ;;
 esac
