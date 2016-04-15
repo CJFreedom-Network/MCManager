@@ -8,19 +8,19 @@
 
 
 # Load the config
-source config.cfg
+source ~/MCMANAGER/config.cfg
 
 function infomsg() {
-  cecho "&6[INFO]&r $1"
+  ~/MCMANAGER/cecho "&6[INFO]&r $1"
 }
 function warningmsg() {
-  cecho "&3[WARN]&r $1"
+  ~/MCMANAGER/cecho "&3[WARN]&r $1"
 }
 function errormsg() {
-  cecho "&1[SEVERE]&r $1"
+  ~/MCMANAGER/cecho "&1[SEVERE]&r $1"
 }
 function okmsg() {
-  cecho "&2[FINE]&r $1"
+  ~/MCMANAGER/cecho "&2[FINE]&r $1"
 }
 
 ME=`whoami`
@@ -93,10 +93,6 @@ function mc_stop() {
   fi
 }
 
-function mc_restart() {
-  mc_start()
-  mc_stop()
-}
 
 function mc_update() {
   case "$1" in
@@ -139,7 +135,7 @@ function mc_update() {
 
     infomsg "Updating CraftBukkit..."
     as_user "mv $MCPATH/craftbukkit.jar.update $MCPATH/$SERVICE"
-    
+
     if [[ $running == "true" ]]
     then
       infomsg "Starting server..."
@@ -162,21 +158,21 @@ function mc_backup() {
     exit
 fi
   mc_saveoff
-  
+
   #### START BACKUP
   NOW=`date "+%Y-%m-%d_%Hh%M"`
   BACKUP_FILE="$BACKUPPATH/${WORLD}_${NOW}.tar"
   infomsg "Backing up minecraft world..."
   # as_user "cd $MCPATH && cp -r $WORLD $BACKUPPATH/${WORLD}_`date "+%Y.%m.%d_%H.%M"`"
   as_user "tar -C \"$MCPATH/worlds/world\" -cf \"$BACKUP_FILE\" $WORLD"
- 
+
   infomsg "Backing up $SERVICE..."
   as_user "tar -C \"$MCPATH\" -rf \"$BACKUP_FILE\" $SERVICE"
   # as_user "cp \"$MCPATH/$SERVICE\" \"$BACKUPPATH/minecraft_server_${NOW}.jar\""
   #### END BACKUP
-  
+
   mc_saveon
-  
+
   infomsg "Compressing backup..."
   as_user "gzip -f \"$BACKUP_FILE\""
   okmsg "Backup Complete."
@@ -274,18 +270,17 @@ case "$1" in
     fi
   ;;
   *)
-    cecho "&3Usage: $0"
-    cecho "  &6start                &r- &6Starts the server"
-    cecho "  &6stop                 &r- &6Stops the server"
-    cecho "  &6update <glowstone>   &r- &6Updates the server to a branch"
-    cecho "  &6backup               &r- &6Makes a backup of the world"
-    cecho "  &6status               &r- &6Shows server information"
-    cecho "  &6restart              &r- &6Restarts the server"
-    cecho "  &6say (message)        &r- &6Broadcasts a message to the server"
-    cecho "  &6cmd (command)        &r- &6Excecutes a command"
+    ~/MCMANAGER/cecho "&3Usage: $0"
+    ~/MCMANAGER/cecho "  &6start                &r- &6Starts the server"
+    ~/MCMANAGER/cecho "  &6stop                 &r- &6Stops the server"
+    ~/MCMANAGER/cecho "  &6update <glowstone>   &r- &6Updates the server to a branch"
+    ~/MCMANAGER/cecho "  &6backup               &r- &6Makes a backup of the world"
+    ~/MCMANAGER/cecho "  &6status               &r- &6Shows server information"
+    ~/MCMANAGER/cecho "  &6restart              &r- &6Restarts the server"
+    ~/MCMANAGER/cecho "  &6say (message)        &r- &6Broadcasts a message to the server"
+    ~/MCMANAGER/cecho "  &6cmd (command)        &r- &6Excecutes a command"
     exit 1
   ;;
 esac
 
 exit 0
-
