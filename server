@@ -97,10 +97,10 @@ function mc_stop() {
 function mc_update() {
   case "$1" in
     glowstone)
-      DOWNLOAD_URL="http://ci.chrisgward.com/job/Glowstone/lastSuccessfulBuild/artifact/build/libs/glowstone.jar"
+      warningmsg "This feature no longer works. Thank you."
     ;;
     *)
-      warningmsg "Please use 'glowstone'"
+      warningmsg "This feature no longer works. Thank you."
       exit
     ;;
   esac
