@@ -211,7 +211,7 @@ function reset_map() {
       as_user "mkdir ~/tmp"
       as_user "cp /home/maps/$mapname.tar ~/tmp/"
       as_user "cd ~/tmp/ && tar -xf ~/tmp/$mapname.tar"
-      as_user "rm -rf $MCPATH/world && mkdir $MCPATH/world"
+      as_user "rm $MCPATH/plugins/Essentials/spawn.yml && rm -rf $MCPATH/world && mkdir $MCPATH/world"
       as_user "cp -r ~/tmp/$mapname/* $MCPATH/world/"
       as_user "rm -rf ~/tmp"
       infomsg "&5[Server] Reset map to $1"
