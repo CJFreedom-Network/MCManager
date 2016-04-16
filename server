@@ -203,7 +203,8 @@ function reset_map() {
   mapname="$1";
   if pgrep -u $USERNAME -f $SERVICE > /dev/null
   then
-    #as_user "screen -p 0 -S minecraft -X eval 'stuff \"say $mapname\"\015'"
+    errormsg "&5Server must not be running when resetting map"
+  else
     if [ -f "/home/maps/$mapname.tar" ];
     then
       infomsg "&5[Server] Resetting map to $1"
@@ -217,7 +218,6 @@ function reset_map() {
     else
        infomsg "Error: Map does not exist"
     fi
-
   fi
 }
 
